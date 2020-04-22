@@ -1,0 +1,14 @@
+{
+  "name": "cvv-generator",
+  "version": "1.0.0",
+  "description": "Module to create random numbers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cvv"
+  ],
+  "author": "Braian Sieber",
+  "license": "ISC"
+}
