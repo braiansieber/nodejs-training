@@ -31,22 +31,33 @@ Objetivo de esta tarea:
 
 const fs = require('fs');
 
-// fs.appendFile('algo.txt', `System info: ${JSON.stringify(cpu)}`, function(error) {
-//     if(error) {
-//         console.log('Error al crear archivo');
-//     }
-// });
-
 let contents = fs.readFileSync('transaccions', 'utf8');
 let contents_split = contents.split('\n');
 contents_split.shift();
-
+contents_split.pop();
 
 let contents_reject = [];
+let rj_errors = 0;
+let cd_errors = 0;
 const not_reject = ['OK'];
+const rj_reject = ['RJ'];
+const cd_reject = ['CD'];
 
 contents_split.forEach(element => {
-  element.includes(not_reject) ? true : contents_reject.push(element);
+  if (!element.includes(not_reject)){
+    element.includes(rj_reject) ? rj_errors++ : cd_errors++;
+    split_element = element.split(':');
+    contents_reject.push(
+      {
+        'ID': split_element[0],
+        'DATE': split_element[1],
+        'TIME': split_element[2],
+        'STATUS': split_element[3]
+      });
+  }
 });
 
-console.table(contents_reject2);
+console.log('Transactions with errors:');
+
+console.table(contents_reject);
+console.log(`Exist ${cd_errors + rj_errors} errors.\n${cd_errors} was canceled and ${rj_errors} was rejected.`);
