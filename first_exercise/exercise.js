@@ -31,7 +31,7 @@ Objetivo de esta tarea:
 
 const fs = require('fs');
 
-let contents = fs.readFileSync('transaccions', 'utf8');
+let contents = fs.readFileSync('transactions', 'utf8');
 let contents_split = contents.split('\n');
 contents_split.shift();
 contents_split.pop();
