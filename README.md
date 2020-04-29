@@ -1,2 +1,2 @@
 # nodejs-training
-Training dicted by @jbrizio in @IncluIT
+Training dicted by Jonathan Brizio (@jbrizio) and Alan Berdinelli (@aeberdinelli) provided by @IncluIT
